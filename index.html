@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OTAccessFabric - The Digital Air Gap</title>
+    <title>OTAccessFabric | The Digital Air Gap</title>
     <style>
         * {
             margin: 0;
@@ -14,21 +14,55 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #e5e7eb;
             background: #0a0f1c;
         }
 
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 5%;
+            background: rgba(10, 15, 28, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-btn {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero */
         .hero {
             background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 140px 20px 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .hero::before {
@@ -43,42 +77,40 @@
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        .version-badge {
+        .badge {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 8px 15px;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 20px;
             border-radius: 20px;
             font-size: 0.9rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.2;
         }
 
-        .hero h1 .highlight {
+        .highlight {
             color: #60a5fa;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
+            font-size: 1.2rem;
+            margin: 30px auto;
+            max-width: 700px;
             opacity: 0.95;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .download-btn {
+        .cta-primary {
             display: inline-block;
             padding: 18px 45px;
             background: white;
@@ -92,44 +124,64 @@
             margin: 10px;
         }
 
-        .download-btn:hover {
+        .cta-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
-        .features {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
+        /* Section Styling */
+        section {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #d1d5db;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        /* Feature Grid */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .feature-card {
             background: #1a1f2e;
-            padding: 40px 30px;
+            padding: 35px;
             border-radius: 15px;
-            text-align: center;
+            border: 1px solid rgba(96, 165, 250, 0.2);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.3);
+            transform: translateY(-5px);
             border-color: #60a5fa;
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2);
         }
 
         .feature-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
 
         .feature-card h3 {
             color: #fff;
+            font-size: 1.4rem;
             margin-bottom: 15px;
-            font-size: 1.5rem;
         }
 
         .feature-card p {
@@ -137,66 +189,44 @@
             line-height: 1.8;
         }
 
-        .section-header {
-            text-align: center;
-            padding: 80px 20px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header h2 {
-            color: #fff;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .section-header p {
-            color: #d1d5db;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .problem-section {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
+        /* Two Column Layout */
+        .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
+            margin-top: 60px;
         }
 
         @media (max-width: 900px) {
-            .problem-section {
+            .two-col {
                 grid-template-columns: 1fr;
             }
         }
 
-        .problem-card {
+        .content-card {
             background: #1a1f2e;
             padding: 40px;
             border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(96, 165, 250, 0.2);
         }
 
-        .problem-card p {
-            color: #d1d5db;
-        }
-
-        .problem-card h3 {
+        .content-card h3 {
             color: #60a5fa;
             font-size: 1.8rem;
             margin-bottom: 20px;
         }
 
-        .problem-card h4 {
+        .content-card h4 {
             color: #fff;
-            font-size: 1.3rem;
-            margin: 30px 0 15px;
+            margin: 25px 0 15px;
         }
 
-        .problem-card code {
+        .content-card p {
+            color: #d1d5db;
+        }
+
+        code {
             display: block;
             background: rgba(0,0,0,0.4);
             padding: 20px;
@@ -204,19 +234,19 @@
             color: #60a5fa;
             border-left: 4px solid #ef4444;
             font-family: 'Courier New', monospace;
+            margin-top: 15px;
         }
 
-        .solution-cards {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
+        /* Solution Cards */
+        .solution-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
         @media (max-width: 900px) {
-            .solution-cards {
+            .solution-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -237,242 +267,249 @@
             align-items: center;
         }
 
+        .solution-card p {
+            color: #d1d5db;
+        }
+
         .solution-card code {
-            display: block;
-            background: rgba(0,0,0,0.4);
-            padding: 15px;
-            border-radius: 8px;
             color: #10b981;
-            margin-top: 15px;
-            font-family: 'Courier New', monospace;
             line-height: 1.8;
         }
 
-        .architecture-section {
-            max-width: 900px;
-            margin: 0 auto 80px;
-            padding: 40px;
+        /* Contact Section */
+        .contact-section {
             background: #1a1f2e;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
+            padding: 80px 5%;
+            text-align: center;
         }
 
-        .architecture-section ul {
-            list-style: none;
-            padding: 0;
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto 0;
         }
 
-        .architecture-section li {
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 3px solid #60a5fa;
-            background: rgba(0,0,0,0.3);
-            border-radius: 4px;
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
             color: #d1d5db;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
 
-        .architecture-section li strong {
-            color: #60a5fa;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(10, 15, 28, 0.8);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
         }
 
-        .architecture-section code {
-            background: rgba(96, 165, 250, 0.1);
-            color: #60a5fa;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
         }
 
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            padding: 15px 50px;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(96, 165, 250, 0.4);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
             background: #0a0a14;
-            color: #666;
-        }
-
-        footer h2 {
-            color: #fff;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            color: #6b7280;
         }
 
         footer p {
-            color: #d1d5db;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        footer .cta-btn {
-            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-            color: #fff;
-            font-size: 1.2rem;
-            padding: 20px 50px;
-        }
-
-        footer .cta-btn:hover {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(96, 165, 250, 0.4);
-        }
-
-        footer .copyright {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #666;
+            margin: 10px 0;
         }
 
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- Header -->
+    <header>
+        <div class="logo">OTAccessFabric</div>
+        <a href="#contact" class="nav-btn">Request Demo</a>
+    </header>
+
+    <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
-            <div class="version-badge">A1OT Engine v1.0</div>
+            <div class="badge">A1OT Engine v1.0</div>
             <h1>Access is the <br><span class="highlight">New OT Air Gap.</span></h1>
             <p>
                 Industry 4.0 connected everything. <strong>A1OT</strong> provides the Control Logic to keep it safe.
-                <br><br>
+            </p>
+            <p style="font-size: 1.3rem; margin-top: 30px;">
                 <strong>Context + Intent = Access</strong>
             </p>
-            <a href="#" class="download-btn">Initialize A1OT Fabric</a>
+            <a href="#features" class="cta-primary">Learn More</a>
+            <a href="#contact" class="cta-primary" style="background: transparent; border: 2px solid white; color: white;">Get Started</a>
         </div>
     </div>
 
-    <!-- FEATURES SECTION -->
-    <div class="section-header">
-        <h2>Strategic Capabilities</h2>
-        <p>Built for the CISO & OT Director. Bridging the gap between Enterprise Security and Operational Uptime.</p>
-    </div>
+    <!-- Features Section -->
+    <section id="features">
+        <h2 class="section-title">Strategic Capabilities</h2>
+        <p class="section-subtitle">Built for the CISO & OT Director. Bridging the gap between Enterprise Security and Operational Uptime.</p>
 
-    <div class="features">
-        <div class="feature-card">
-            <div class="feature-icon">🛡️</div>
-            <h3>Dynamic Safety Interlocks</h3>
-            <p>Prevent the "$500k Mistake". We block access if the asset is in "Run Mode". Identity never overrides Physics.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Dynamic Safety Interlocks</h3>
+                <p>Prevent the "$500k Mistake". We block access if the asset is in "Run Mode". Identity never overrides Physics.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Zero-Trust Task Runner</h3>
+                <p>Eliminate "Fat Finger" errors and Insider Threats. Vendors execute approved tasks without shell access.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Automated Compliance</h3>
+                <p>NIS2 & CISA Ready. We log the Intent and Context of every action, creating an unshakeable audit trail.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Real-time Protection</h3>
+                <p>Powered by dynamic runtime rules that adapt to your operational state in real-time.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Context-Aware Access</h3>
+                <p>Access decisions based on operational context, not just identity credentials.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Easy Integration</h3>
+                <p>Seamlessly integrates with your existing OT infrastructure without disruption.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Zero-Trust Task Runner</h3>
-            <p>Eliminate "Fat Finger" errors and Insider Threats. Vendors execute approved tasks without shell access.</p>
-        </div>
+    <!-- Problem Section -->
+    <section>
+        <h2 class="section-title">The Problem: Identity ≠ Safety</h2>
+        <p class="section-subtitle">VPNs solve for Connectivity, not State. They function like an open circuit with no fuse.</p>
 
-        <div class="feature-card">
-            <div class="feature-icon">📋</div>
-            <h3>Automated Compliance</h3>
-            <p>NIS2 & CISA Ready. We log the Intent and Context of every action, creating an unshakeable audit trail.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Real-time Protection</h3>
-            <p>Powered by dynamic runtime rules that adapt to your operational state in real-time.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Context-Aware Access</h3>
-            <p>Access decisions based on operational context, not just identity credentials.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">⚙️</div>
-            <h3>Easy Integration</h3>
-            <p>Seamlessly integrates with your existing OT infrastructure without disruption.</p>
-        </div>
-    </div>
-
-    <!-- PROBLEM SECTION -->
-    <div class="section-header">
-        <h2>The Problem: Identity ≠ Safety</h2>
-        <p>VPNs solve for Connectivity, not State. They function like an open circuit with no fuse.</p>
-    </div>
-
-    <div class="problem-section">
-        <div>
-            <div class="problem-card">
+        <div class="two-col">
+            <div class="content-card">
                 <h3>The Identity Gap</h3>
                 <p>VPNs solve for <em>Connectivity</em>, not <em>State</em>. They function like an open circuit with no fuse.</p>
                 
                 <h4>The Failure Equation:</h4>
                 <code>VPN(Credentials) + Malware = 100% Breach</code>
             </div>
+            
+            <div class="content-card">
+                <h3>Engineering Reality</h3>
+                <p>You wouldn't let a 500HP motor spin without a limit switch.</p>
+                <br>
+                <p>So why let a remote vendor connect to your safety systems without an operational safety check?</p>
+            </div>
         </div>
-        
-        <div class="problem-card">
-            <h3>Engineering Reality</h3>
-            <p>You wouldn't let a 500HP motor spin without a limit switch.</p>
-            <br>
-            <p>So why let a remote vendor connect to your safety systems without an operational safety check?</p>
+    </section>
+
+    <!-- Solution Section -->
+    <section>
+        <h2 class="section-title">The Solution: We Are The Safety Interlock</h2>
+        <p class="section-subtitle">The A1OT Engine acts as a programmable logic controller for human access.</p>
+
+        <div class="solution-grid">
+            <div class="solution-card">
+                <h3>
+                    <span>01. Context Gate</span>
+                    <span style="font-weight: bold; color: #fff;">[AND]</span>
+                </h3>
+                <p>Access requires Identity <strong>AND</strong> Safe State.</p>
+                <code>If (PLC_State == "Run")<br>AND (User == "Vendor")<br>Then { BLOCK_ACCESS }</code>
+            </div>
+
+            <div class="solution-card" style="border-top-color: #10b981;">
+                <h3 style="color: #10b981;">
+                    <span>02. Intent Gate</span>
+                    <span style="font-weight: bold; color: #fff;">[XOR]</span>
+                </h3>
+                <p>We execute the task, not the shell. We remove the "Fat Finger" error vector.</p>
+                <code>Function Execute_Safe_Command(input)<br>return System.Run(input)</code>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- SOLUTION SECTION -->
-    <div class="section-header">
-        <h2>The Solution: We Are The Safety Interlock</h2>
-        <p>The A1OT Engine acts as a programmable logic controller for human access.</p>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Ready to deploy the A1OT Fabric? Contact us for a demo.</p>
 
-    <div class="solution-cards">
-        <div class="solution-card">
-            <h3>
-                <span>01. Context Gate</span>
-                <span style="font-weight: bold; color: #fff;">[AND]</span>
-            </h3>
-            <p style="color: #d1d5db;">Access requires Identity <strong>AND</strong> Safe State.</p>
-            <code>If (PLC_State == "Run")<br>AND (User == "Vendor")<br>Then { BLOCK_ACCESS }</code>
-        </div>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
 
-        <div class="solution-card" style="border-top-color: #10b981;">
-            <h3 style="color: #10b981;">
-                <span>02. Intent Gate</span>
-                <span style="font-weight: bold; color: #fff;">[XOR]</span>
-            </h3>
-            <p style="color: #d1d5db;">We execute the task, not the shell. We remove the "Fat Finger" error vector.</p>
-            <code>Function Execute_Safe_Command(input)<br>return System.Run(input)</code>
-        </div>
-    </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-    <!-- ARCHITECTURE SECTION -->
-    <div class="section-header">
-        <h2>How It Works</h2>
-        <p>The Architecture of Trust</p>
-    </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company">
+            </div>
 
-    <div class="architecture-section">
-        <ul>
-            <li>
-                <strong>INPUT:</strong> User Request vector <code>U(t)</code>
-            </li>
-            <li>
-                <strong>VARIABLE X:</strong> Operational State matrix <code>O(t)</code>
-            </li>
-            <li>
-                <strong>ALGORITHM:</strong> <code>Permission = f(U(t), O(t))</code>
-            </li>
-        </ul>
-        
-        <p style="margin-top: 30px; color: #d1d5db; text-align: center;">
-            <em>A dynamic runtime policy engine that creates an IT and OT Access Air Gap</em>
-        </p>
-    </div>
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
 
-    <!-- FOOTER -->
+            <button type="submit" class="submit-btn">Request Demo</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <h2>Sleep Better.</h2>
-        <p>The Air Gap is gone. But with <strong>A1OT</strong>, you have <strong>Mathematical Certainty</strong>.</p>
-        <a href="#" class="cta-btn">Deploy the Fabric</a>
-        <p class="copyright">&copy; 2025 OTAccessFabric. All Systems Nominal.</p>
+        <p style="color: #fff; font-size: 1.3rem; margin-bottom: 20px;">Sleep Better.</p>
+        <p style="color: #d1d5db; margin-bottom: 30px;">The Air Gap is gone. But with <strong>A1OT</strong>, you have <strong>Mathematical Certainty</strong>.</p>
+        <p>&copy; 2025 OTAccessFabric. All Systems Nominal.</p>
     </footer>
 
 </body>
