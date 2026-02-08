@@ -1003,6 +1003,9 @@
             padding: 40px;
             border-radius: 15px;
             border: 1px solid var(--border-color);
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
         }
 
         .content-card h3 {
@@ -1175,17 +1178,36 @@
             .data-flow-animation {
                 flex-direction: column;
                 gap: 18px;
-                padding: 25px;
+                padding: 30px;
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .data-flow-animation .node {
+                padding: 14px 24px;
+                font-size: 0.95rem;
+            }
+
+            .data-flow-animation .logic-gate {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
             }
 
             .data-flow-animation .connector {
-                width: 3px;
-                height: 50px;
-                margin: 0;
+                width: 1px;
+                height: 45px;
+                background: #334155;
+                position: relative;
+                align-self: center;
             }
 
             .data-flow-animation .packet {
-                left: -5.5px;
+                width: 10px;
+                height: 10px;
+                left: 50%;
+                margin-left: -5px;
                 top: 0;
                 animation: transmitVertical 3.5s infinite ease-in-out;
             }
@@ -1194,19 +1216,19 @@
                 0% { 
                     top: 0; 
                     background: #fff;
-                    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+                    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
                 }
                 45% { 
                     background: #fff; 
                 }
                 50% { 
                     background: #10b981;
-                    box-shadow: 0 0 18px #10b981;
+                    box-shadow: 0 0 15px #10b981;
                 }
                 100% { 
                     top: calc(100% - 10px); 
                     background: #10b981;
-                    box-shadow: 0 0 18px #10b981;
+                    box-shadow: 0 0 15px #10b981;
                 }
             }
 
